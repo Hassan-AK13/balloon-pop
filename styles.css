@@ -1,0 +1,170 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+}
+
+#gameArea {
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(230, 186, 173);
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
+    border-radius: 50%;
+    cursor: pointer;
+    animation: floatUp 3s linear infinite; /* Adjusted speed */
+}
+
+@keyframes floatUp {
+    from { bottom: 0px; }
+    to { bottom: 100%; }
+}
+
+#score {
+    color: black; /* Change to a visible color */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#gameOver, #nameEntry, #scoreBoard {
+    text-align: center;
+    font-size: 24px;
+    color: black; /* Change to a visible color */
+    margin-top: 20px;
+}
+
+#scoreBoard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+}
+
+#gameArea {
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(230, 186, 173);
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
+    border-radius: 50%;
+    cursor: pointer;
+    animation: floatUp 3s linear infinite; /* Adjusted speed */
+}
+
+.powerUp {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes floatUp {
+    from { bottom: 0px; }
+    to { bottom: 100%; }
+}
+
+#score {
+    color: black; /* Change to a visible color */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#gameOver, #nameEntry, #scoreBoard {
+    text-align: center;
+    font-size: 24px;
+    color: black; /* Change to a visible color */
+    margin-top: 20px;
+}
+
+#scoreBoard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+}
+
+#gameArea {
+    width: 90%;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(230, 186, 173);
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
+    border-radius: 50%;
+    cursor: pointer;
+    animation: floatUp 3s linear infinite; /* Adjusted speed */
+}
+
+.powerUp {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes floatUp {
+    from { bottom: 0px; }
+    to { bottom: 100%; }
+}
+
+#score {
+    color: black; /* Change to a visible color */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#gameOver, #nameEntry, #scoreBoard {
+    text-align: center;
+    font-size: 24px;
+    color: black; /* Change to a visible color */
+    margin-top: 20px;
+}
+
+#scoreBoard ul {
+    list-style-type: none;
+    padding: 0;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Pop the Balloons!</h1>
+    <p>Score: <span id="score">0</span></p>
+    <div id="gameArea"></div>
+    <div id="gameOver" style="display: none;">
+        <h1>Game Over</h1>
+        <p>Your score: <span id="finalScore"></span></p>
+    </div>
+    <div id="nameEntry" style="display: none;">
+        <h2>Enter your name:</h2>
+        <input type="text" id="playerName" placeholder="Your name">
+        <button id="submitName">Submit</button>
+    </div>
+    <div id="scoreBoard" style="display: none;">
+        <h2>Scoreboard</h2>
+        <ul id="scoreList"></ul>
+        <button id="restartGame">Restart</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
