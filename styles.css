@@ -12,65 +12,62 @@ body {
     position: relative;
     overflow: hidden;
     background-color: rgb(230, 186, 173);
+    cursor: none; /* Hide default cursor */
 }
 
-.balloon {
-    width: 50px;
-    height: 70px;
+#customCursor {
     position: absolute;
-    background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
+    width: 20px;
+    height: 20px;
+    background-color: brown; /* Brown circle cursor */
     border-radius: 50%;
-    cursor: pointer;
-    animation: floatUp 3s linear infinite; /* Adjusted speed */
-}
-
-@keyframes floatUp {
-    from { bottom: 0px; }
-    to { bottom: 100%; }
-}
-
-#score {
-    color: black; /* Change to a visible color */
-    font-size: 24px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Ensure it is on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
 }
 
-#gameOver, #nameEntry, #scoreBoard {
-    text-align: center;
-    font-size: 24px;
-    color: black; /* Change to a visible color */
-    margin-top: 20px;
-}
-
-#scoreBoard ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-}
-
-#gameArea {
-    width: 90%;
-    height: 400px;
-    margin: 20px auto;
-    border: 2px solid black;
-    position: relative;
-    overflow: hidden;
-    background-color: rgb(230, 186, 173);
+#customCursor.aim {
+    background-color: transparent;
+    content: '🎯'; /* Aim symbol */
 }
 
 .balloon {
-    width: 50px;
-    height: 70px;
+    width: 60px; /* Increased size */
+    height: 80px; /* Increased size */
     position: absolute;
     background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
     border-radius: 50%;
-    cursor: pointer;
-    animation: floatUp 3s linear infinite; /* Adjusted speed */
+    animation: floatUp 4s linear infinite; /* Adjusted speed */
+    border: 2px solid black; /* Added border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Added shadow */
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.balloon:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Highlight balloon on hover */
+    cursor: crosshair; /* Ensure cursor is crosshair */
+}
+
+.balloon:hover ~ #customCursor {
+    background-color: transparent;
+    content: '🎯'; /* Aim symbol */
+}
+
+.balloon.popped {
+    background: none; /* Remove background color */
+    color: gold; /* Star color */
+    font-size: 60px; /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    opacity: 0;
 }
 
 .powerUp {
@@ -82,7 +79,25 @@ body {
     line-height: 50px;
     font-size: 24px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: crosshair; /* Ensure cursor is crosshair */
+}
+
+.powerUp.black {
+    color: red; /* Red skull */
+}
+
+.powerUp.purple {
+    background-color: purple;
+    color: white;
+}
+
+.powerUp.gold {
+    background-color: gold;
+}
+
+.powerUp.navy {
+    background-color: navy;
+    color: white;
 }
 
 @keyframes floatUp {
@@ -108,63 +123,45 @@ body {
     padding: 0;
 }
 
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+#progressBar {
+    width: 90%; /* Same width as game area */
+    height: 20px;
+    background-color: #ddd;
+    margin: 0 auto; /* Center the progress bar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#gameArea {
-    width: 90%;
-    height: 400px;
-    margin: 20px auto;
-    border: 2px solid black;
-    position: relative;
-    overflow: hidden;
-    background-color: rgb(230, 186, 173);
+#progress {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%;
 }
 
-.balloon {
-    width: 50px;
-    height: 70px;
+#timeRemaining {
     position: absolute;
-    background-color: rgb(0, 225, 255); /* This will be overridden by JavaScript */
-    border-radius: 50%;
-    cursor: pointer;
-    animation: floatUp 3s linear infinite; /* Adjusted speed */
-}
-
-.powerUp {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-@keyframes floatUp {
-    from { bottom: 0px; }
-    to { bottom: 100%; }
-}
-
-#score {
-    color: black; /* Change to a visible color */
-    font-size: 24px;
+    color: black;
     font-weight: bold;
 }
 
-#gameOver, #nameEntry, #scoreBoard {
-    text-align: center;
-    font-size: 24px;
-    color: black; /* Change to a visible color */
-    margin-top: 20px;
+.message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001; /* Ensure it is on top */
+    pointer-events: auto; /* Allow cursor interaction */
+    cursor: default; /* Show default cursor */
 }
 
-#scoreBoard ul {
-    list-style-type: none;
-    padding: 0;
+.message:hover ~ #customCursor {
+    display: flex; /* Ensure custom cursor is visible */
 }
