@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseY = 0;
     let gameDuration = 30000; // 30 seconds
     let remainingTime = gameDuration;
+    let spacePressed = false;
+    let targetBalloon = null;
 
     document.addEventListener('mousemove', (event) => {
         mouseX = event.clientX;
@@ -41,11 +43,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.code === 'Space') {
-            popBalloonAtMouse();
-            popPowerUpAtMouse();
+        if (event.code === 'Space' && !spacePressed) {
+            spacePressed = true;
+            targetBalloon = getBalloonAtMouse();
         }
     });
+
+    document.addEventListener('keyup', (event) => {
+        if (event.code === 'Space' && spacePressed) {
+            spacePressed = false;
+            if (targetBalloon && isMouseOverBalloon(targetBalloon)) {
+                popBalloon(targetBalloon);
+            }
+            targetBalloon = null;
+        }
+    });
+
+    function getBalloonAtMouse() {
+        const balloons = document.querySelectorAll('.balloon');
+        for (const balloon of balloons) {
+            const rect = balloon.getBoundingClientRect();
+            if (mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom) {
+                return balloon;
+            }
+        }
+        return null;
+    }
+
+    function isMouseOverBalloon(balloon) {
+        const rect = balloon.getBoundingClientRect();
+        return mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom;
+    }
 
     function createBalloon() {
         for (let i = 0; i < balloonMultiplier; i++) {
@@ -166,8 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000); // Duration of increased speed
     }
 
-    function popBalloon(event) {
-        const balloon = event.target;
+    function popBalloon(balloon) {
         balloon.classList.add('popped');
         balloon.innerHTML = '&#9733;'; // HTML5 star character
         setTimeout(() => {
